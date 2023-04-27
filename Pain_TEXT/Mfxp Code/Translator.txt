@@ -1,0 +1,99 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+map<char, string> dictionary = {
+    {'a', "yae"},
+    {'b', "iv"},
+    {'c', "ico"},
+    {'d', "udo"},
+    {'e', "ife"},
+    {'f', "opaf"},
+    {'g', "gam"},
+    {'h', "ish"},
+    {'i', "iti"},
+    {'j', "ajam"},
+    {'k', "ika"},
+    {'l', "qal"},
+    {'m', "oma"},
+    {'n', "int"},
+    {'ñ', "umih"},
+    {'o', "aoc"},
+    {'p', "alp"},
+    {'q', "unk"},
+    {'r', "atr"},
+    {'s', "ims"},
+    {'t', "aft"},
+    {'u', "ika"},
+    {'v', "uvo"},
+    {'w', "ikaik"},
+    {'x', "isat"},
+    {'y', "aim"},
+    {'z', "ize"},
+    {'A', "Yae"},
+    {'B', "Ivem"},
+    {'C', "Icoh"},
+    {'D', "Udo"},
+    {'E', "ife"},
+    {'F', "Ofg"},
+    {'G', "Gam"},
+    {'H', "Ishi"},
+    {'I', "Ili"},
+    {'J', "Ajam"},
+    {'K', "Ika"},
+    {'L', "Qal"},
+    {'M', "Oma"},
+    {'N', "Int"},
+    {'Ñ', "Umih"},
+    {'O', "Aoc"},
+    {'P', "Alp"},
+    {'Q', "Unk"},
+    {'R', "Atr"},
+    {'S', "Ims"},
+    {'T', "Aft"},
+    {'U', "Ika"},
+    {'V', "Uvo"},
+    {'W', "Ikaik"},
+    {'X', "Isat"},
+    {'Y', "Aimi"},
+    {'Z', "Ize"},
+    {'1', "--Uhm"},
+    {'2', "--Oto"},
+    {'3', "--Ika"},
+    {'4', "--Elt"},
+    {'5', "--Oca"},
+    {'6', "--Toc"},
+    {'7', "--Iki"},
+    {'8', "--Ofac"},
+    {'9', "--Inol"},
+    {'0', "--Siam"},
+    {'.', ">"},
+    {',', "<"},
+    {'?', "#-"},
+    {'!', "#+"},
+    {':', "!-"},
+    {';', "-!"}
+};
+
+string encrypt(string message) {
+    string encrypted = "";
+    for (char& c : message) {
+        if (dictionary.find(c) != dictionary.end()) {
+            encrypted += dictionary[c];
+        }
+        else {
+            encrypted += c;
+        }
+    }
+    return encrypted;
+}
+
+int main() {
+    string message = "This mod changes the text throughout the entire game";
+    string encrypted = encrypt(message);
+    cout << "Original: " << message << endl;
+    cout << "Mod: " << encrypted << endl;
+    return 0;
+}
